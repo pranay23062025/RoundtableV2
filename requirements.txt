@@ -1,44 +1,44 @@
 # Python dependencies for GVC AI Mentor Roundtable
 
 # Core framework
-streamlit>=1.28.0
+streamlit>=1.28.0,<2.0.0
 
 # Environment management
-python-dotenv>=1.0.0
+python-dotenv>=0.19.0
 
 # AI and LLM frameworks
-openai>=1.0.0
-anthropic>=0.3.0
-langchain>=0.1.0
-langchain-community>=0.0.20
-langchain-core>=0.1.0
+openai>=1.0.0,<2.0.0
+langchain>=0.1.0,<0.3.0
+langchain-community>=0.0.20,<0.3.0
+langchain-core>=0.1.0,<0.3.0
 
 # Vector storage and embeddings
-chromadb>=0.4.0
-sentence-transformers>=2.2.0
+chromadb>=0.4.0,<0.6.0
+sentence-transformers>=2.2.0,<3.0.0
 
 # Data processing and analysis
-pandas>=2.0.0
-numpy>=1.24.0
+pandas>=1.5.0,<3.0.0
+numpy>=1.21.0,<2.0.0
 
 # Visualization and plotting
-plotly>=5.15.0
-matplotlib>=3.7.0
-wordcloud>=1.9.0
+plotly>=5.15.0,<6.0.0
+matplotlib>=3.5.0,<4.0.0
+wordcloud>=1.9.0,<2.0.0
 
 # Image processing
-Pillow>=10.0.0
+Pillow>=9.0.0,<11.0.0
 
-# PDF generation
-pdfkit>=1.0.0
-weasyprint>=60.0
+# PDF generation (optional - comment out if causing issues)
+# pdfkit>=1.0.0,<2.0.0
 
 # HTTP requests
-requests>=2.31.0
+requests>=2.25.0,<3.0.0
 
-# Streamlit components
-streamlit-components-v1>=0.1.0
+# Core dependencies
+rich>=13.0.0,<15.0.0
+markdown-it-py>=2.0.0,<4.0.0
+pygments>=2.10.0,<3.0.0
 
 # Additional utilities
-typing-extensions>=4.0.0
-
+typing-extensions>=4.0.0,<5.0.0
+protobuf>=3.20.0,<5.0.0
