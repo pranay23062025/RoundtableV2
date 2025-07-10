@@ -1,0 +1,154 @@
+/* Enhanced CSS for improved agent name display in chat and roundtable */
+
+/* Chat Interface Styling */
+.mentor-name-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #009CA6, #007A83);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 8px rgba(0, 156, 166, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-name-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Roundtable Improvements */
+.roundtable-container {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin: 15px auto;
+    background: radial-gradient(circle at center, #f8fbff 0%, #e8f4f8 70%, #d0e8ed 100%);
+    border-radius: 50%;
+    border: 4px solid #009CA6;
+    box-shadow: 0 8px 25px rgba(0, 156, 166, 0.3);
+    overflow: visible;
+}
+
+/* Enhanced avatar styling for better visibility */
+.roundtable-avatar {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    z-index: 5;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.roundtable-avatar:hover {
+    transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+/* Agent name labels in roundtable */
+.roundtable-name-label {
+    position: absolute;
+    font-size: 8px;
+    font-weight: bold;
+    color: #444;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3px 6px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    line-height: 1.1;
+    max-width: 65px;
+    z-index: 6;
+}
+
+/* Status indicators */
+.agent-thinking {
+    animation: pulse 2s infinite;
+    border-color: #FFD700 !important;
+    background-color: #FFF8DC !important;
+    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.5) !important;
+}
+
+.agent-active {
+    border-color: #009CA6 !important;
+    background-color: #E6F3FF !important;
+    box-shadow: 0 4px 16px rgba(0, 156, 166, 0.5) !important;
+}
+
+.agent-inactive {
+    border-color: #CCC !important;
+    background-color: #F8F9FA !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        transform: translate(-50%, -50%) scale(1); 
+        box-shadow: 0 4px 16px rgba(255, 215, 0, 0.5);
+    }
+    50% { 
+        transform: translate(-50%, -50%) scale(1.05); 
+        box-shadow: 0 6px 20px rgba(255, 215, 0, 0.7);
+    }
+}
+
+/* Chat message styling improvements */
+.stChatMessage {
+    margin-bottom: 16px;
+}
+
+.stChatMessage [data-testid="chatAvatarIcon-assistant"] {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #009CA6;
+}
+
+.stChatMessage [data-testid="chatAvatarIcon-user"] {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #6366f1;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .roundtable-container {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .roundtable-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 12px;
+    }
+    
+    .roundtable-name-label {
+        font-size: 7px;
+        max-width: 55px;
+        padding: 2px 4px;
+    }
+    
+    .mentor-name-badge,
+    .user-name-badge {
+        font-size: 11px;
+        padding: 3px 10px;
+    }
+}
