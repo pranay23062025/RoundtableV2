@@ -37,65 +37,19 @@ def render_data_showcase_page():
     # Action Buttons
     render_action_buttons(data)
     
-    # Royal footer
+    # Debug information
+    st.write("Debug: About to render footer HTML...")
+    
+    # Royal footer - Simplified for debugging
     st.markdown("""
-    <div style="
-        margin-top: 80px;
-        padding: 40px 20px;
-        text-align: center;
-        background: linear-gradient(135deg, 
-            rgba(30, 60, 114, 0.05), 
-            rgba(139, 0, 0, 0.05), 
-            rgba(184, 134, 11, 0.05));
-        border-radius: 25px;
-        border: 2px solid rgba(184, 134, 11, 0.2);
-        backdrop-filter: blur(15px);
-        position: relative;
-        overflow: hidden;
-    ">
-        <div style="
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, 
-                #1e3c72 0%, 
-                #8b0000 50%, 
-                #b8860b 100%);
-        "></div>
-        
-        <div style="
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 10px rgba(184, 134, 11, 0.3);
-        ">👑 Royal Student Analytics Dashboard</div>
-        
-        <div style="
-            font-family: 'Inter', sans-serif;
-            color: #1e3c72;
-            font-size: 1rem;
-            opacity: 0.8;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        ">
-            Powered by AI • Designed for Excellence • Built for Success
-        </div>
-        
-        <div style="
-            margin-top: 20px;
-            font-size: 2rem;
-            opacity: 0.6;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
-        ">✨ 🎓 ✨</div>
+    <div style="text-align: center; padding: 20px; margin-top: 40px;">
+        <h3>👑 Royal Student Analytics Dashboard</h3>
+        <p>Powered by AI • Designed for Excellence • Built for Success</p>
+        <div>✨ 🎓 ✨</div>
     </div>
     """, unsafe_allow_html=True)
+    
+    st.write("Debug: Footer HTML should be rendered above this line.")
 
 def add_dashboard_css():
     """Add beautiful royal-themed dashboard CSS styling with red, blue, and gold"""
@@ -2669,4 +2623,3 @@ def create_word_cloud(data):
         
     except ImportError:
         return None
-
