@@ -36,33 +36,113 @@ def render_data_showcase_page():
     
     # Action Buttons
     render_action_buttons(data)
+    
+    # Royal footer
+    st.markdown("""
+    <div style="
+        margin-top: 80px;
+        padding: 40px 20px;
+        text-align: center;
+        background: linear-gradient(135deg, 
+            rgba(30, 60, 114, 0.05), 
+            rgba(139, 0, 0, 0.05), 
+            rgba(184, 134, 11, 0.05));
+        border-radius: 25px;
+        border: 2px solid rgba(184, 134, 11, 0.2);
+        backdrop-filter: blur(15px);
+        position: relative;
+        overflow: hidden;
+    ">
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                #1e3c72 0%, 
+                #8b0000 50%, 
+                #b8860b 100%);
+        "></div>
+        
+        <div style="
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(184, 134, 11, 0.3);
+        ">👑 Royal Student Analytics Dashboard</div>
+        
+        <div style="
+            font-family: 'Inter', sans-serif;
+            color: #1e3c72;
+            font-size: 1rem;
+            opacity: 0.8;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        ">
+            Powered by AI • Designed for Excellence • Built for Success
+        </div>
+        
+        <div style="
+            margin-top: 20px;
+            font-size: 2rem;
+            opacity: 0.6;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+        ">✨ 🎓 ✨</div>
+    </div>
+    """, unsafe_allow_html=True)
 
 def add_dashboard_css():
-    """Add beautiful modern dashboard CSS styling"""
+    """Add beautiful royal-themed dashboard CSS styling with red, blue, and gold"""
     st.markdown("""
     <style>
-    /* Import beautiful fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+    /* Import elegant royal fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600;700&display=swap');
     
-    /* Global dashboard styling */
+    /* Royal gradient background */
     .stApp {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 25%, #8b0000 75%, #b8860b 100%);
         min-height: 100vh;
+        position: relative;
     }
     
-    /* Beautiful dashboard cards with glassmorphism */
+    .stApp::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            radial-gradient(circle at 20% 20%, rgba(184, 134, 11, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(30, 60, 114, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(139, 0, 0, 0.05) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: -1;
+    }
+    
+    /* Elegant royal dashboard cards */
     .dashboard-card {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 20px;
-        padding: 28px;
-        margin-bottom: 24px;
+        background: linear-gradient(145deg, 
+            rgba(255, 255, 255, 0.95) 0%, 
+            rgba(248, 250, 252, 0.9) 100%);
+        backdrop-filter: blur(25px);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        border-radius: 24px;
+        padding: 32px;
+        margin-bottom: 28px;
         box-shadow: 
-            0 8px 32px rgba(0, 0, 0, 0.1),
-            0 4px 16px rgba(0, 0, 0, 0.05),
-            inset 0 1px 0 rgba(255, 255, 255, 0.6);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            0 20px 60px rgba(30, 60, 114, 0.15),
+            0 10px 30px rgba(139, 0, 0, 0.1),
+            0 5px 15px rgba(184, 134, 11, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
     }
@@ -73,70 +153,107 @@ def add_dashboard_css():
         top: 0;
         left: 0;
         right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        height: 4px;
+        background: linear-gradient(90deg, 
+            #1e3c72 0%, 
+            #2a5298 25%, 
+            #8b0000 50%, 
+            #b8860b 75%, 
+            #ffd700 100%);
         opacity: 0;
-        transition: opacity 0.3s ease;
+        transition: opacity 0.4s ease;
+    }
+    
+    .dashboard-card::after {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, 
+            #1e3c72, #2a5298, #8b0000, #b8860b, #ffd700);
+        z-index: -1;
+        border-radius: 26px;
+        opacity: 0;
+        transition: opacity 0.4s ease;
     }
     
     .dashboard-card:hover {
-        transform: translateY(-8px) scale(1.02);
+        transform: translateY(-12px) scale(1.02);
         box-shadow: 
-            0 20px 40px rgba(0, 0, 0, 0.15),
-            0 10px 20px rgba(0, 0, 0, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            0 30px 80px rgba(30, 60, 114, 0.2),
+            0 15px 40px rgba(139, 0, 0, 0.15),
+            0 8px 20px rgba(184, 134, 11, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
     
-    .dashboard-card:hover::before {
+    .dashboard-card:hover::before,
+    .dashboard-card:hover::after {
         opacity: 1;
     }
     
-    /* Beautiful card headers */
+    /* Royal card headers */
     .card-header {
         display: flex;
         align-items: center;
-        margin-bottom: 20px;
-        padding-bottom: 16px;
-        border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+        margin-bottom: 24px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid transparent;
+        background: linear-gradient(90deg, 
+            rgba(30, 60, 114, 0.1), 
+            rgba(139, 0, 0, 0.1), 
+            rgba(184, 134, 11, 0.1)) bottom;
+        background-size: 100% 2px;
+        background-repeat: no-repeat;
         position: relative;
     }
     
     .card-icon {
-        font-size: 28px;
-        margin-right: 16px;
-        background: linear-gradient(135deg, #667eea, #764ba2);
+        font-size: 32px;
+        margin-right: 18px;
+        background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
+        filter: drop-shadow(0 3px 6px rgba(30, 60, 114, 0.4));
+        text-shadow: 0 0 20px rgba(184, 134, 11, 0.3);
     }
     
     .card-title {
-        font-family: 'Poppins', sans-serif;
-        font-size: 20px;
-        font-weight: 600;
-        background: linear-gradient(135deg, #2d3748, #4a5568);
+        font-family: 'Playfair Display', serif;
+        font-size: 24px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #1e3c72, #8b0000);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         margin: 0;
-        letter-spacing: -0.5px;
+        letter-spacing: -0.8px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
     
-    /* Stunning metric cards */
+    /* Magnificent royal metric cards */
     .metric-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        background: linear-gradient(135deg, 
+            #1e3c72 0%, 
+            #2a5298 25%, 
+            #8b0000 50%, 
+            #a0522d 75%, 
+            #b8860b 100%);
         color: white;
-        border-radius: 18px;
-        padding: 24px;
+        border-radius: 20px;
+        padding: 28px;
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 24px;
         box-shadow: 
-            0 10px 25px rgba(102, 126, 234, 0.3),
-            0 5px 15px rgba(118, 75, 162, 0.2);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            0 15px 35px rgba(30, 60, 114, 0.4),
+            0 8px 20px rgba(139, 0, 0, 0.3),
+            0 4px 10px rgba(184, 134, 11, 0.2);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
+        border: 1px solid rgba(255, 215, 0, 0.3);
     }
     
     .metric-card::before {
@@ -146,8 +263,13 @@ def add_dashboard_css():
         left: -50%;
         width: 200%;
         height: 200%;
-        background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.1), transparent);
-        animation: rotate 4s linear infinite;
+        background: conic-gradient(from 0deg, 
+            transparent, 
+            rgba(255, 215, 0, 0.1), 
+            transparent, 
+            rgba(255, 255, 255, 0.05), 
+            transparent);
+        animation: royalRotate 6s linear infinite;
         opacity: 0;
         transition: opacity 0.3s ease;
     }
@@ -157,48 +279,60 @@ def add_dashboard_css():
     }
     
     .metric-card:hover {
-        transform: translateY(-5px) scale(1.05);
+        transform: translateY(-8px) scale(1.05);
         box-shadow: 
-            0 15px 35px rgba(102, 126, 234, 0.4),
-            0 8px 20px rgba(118, 75, 162, 0.3);
+            0 20px 50px rgba(30, 60, 114, 0.5),
+            0 10px 25px rgba(139, 0, 0, 0.4),
+            0 5px 15px rgba(184, 134, 11, 0.3);
+        border-color: rgba(255, 215, 0, 0.6);
     }
     
     .metric-value {
-        font-family: 'Poppins', sans-serif;
-        font-size: 2.5rem;
+        font-family: 'Playfair Display', serif;
+        font-size: 2.8rem;
         font-weight: 800;
         margin-bottom: 8px;
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        text-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
         position: relative;
         z-index: 1;
+        background: linear-gradient(135deg, #ffd700, #fff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
     
     .metric-label {
         font-family: 'Inter', sans-serif;
-        font-size: 0.95rem;
-        font-weight: 500;
-        opacity: 0.95;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        font-size: 1rem;
+        font-weight: 600;
+        opacity: 0.98;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         position: relative;
         z-index: 1;
+        letter-spacing: 0.5px;
     }
     
-    /* Enhanced progress bars */
+    /* Royal progress bars */
     .progress-bar {
-        background: rgba(229, 231, 235, 0.3);
-        border-radius: 12px;
-        height: 12px;
-        margin: 12px 0;
+        background: rgba(30, 60, 114, 0.2);
+        border-radius: 15px;
+        height: 14px;
+        margin: 16px 0;
         overflow: hidden;
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 
+            inset 0 2px 8px rgba(0, 0, 0, 0.2),
+            0 1px 3px rgba(184, 134, 11, 0.1);
+        border: 1px solid rgba(184, 134, 11, 0.2);
     }
     
     .progress-fill {
         height: 100%;
-        border-radius: 12px;
-        transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 15px;
+        background: linear-gradient(90deg, #1e3c72, #8b0000, #b8860b);
+        transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
+        box-shadow: 0 0 20px rgba(184, 134, 11, 0.4);
     }
     
     .progress-fill::after {
@@ -210,46 +344,63 @@ def add_dashboard_css():
         right: 0;
         background: linear-gradient(90deg, 
             transparent, 
-            rgba(255, 255, 255, 0.3), 
+            rgba(255, 215, 0, 0.4), 
             transparent);
-        animation: shimmer 2s infinite;
+        animation: royalShimmer 2.5s infinite;
     }
     
-    /* Beautiful tags */
+    /* Elegant royal tags */
     .tag {
         display: inline-block;
-        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-        color: #667eea;
-        padding: 8px 16px;
-        border-radius: 25px;
-        font-size: 0.9rem;
-        font-weight: 500;
-        margin: 6px 6px 6px 0;
-        border: 1px solid rgba(102, 126, 234, 0.2);
-        backdrop-filter: blur(10px);
-        transition: all 0.3s ease;
+        background: linear-gradient(135deg, 
+            rgba(30, 60, 114, 0.1), 
+            rgba(139, 0, 0, 0.1), 
+            rgba(184, 134, 11, 0.1));
+        color: #1e3c72;
+        padding: 10px 18px;
+        border-radius: 30px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin: 8px 8px 8px 0;
+        border: 1.5px solid rgba(184, 134, 11, 0.3);
+        backdrop-filter: blur(15px);
+        transition: all 0.4s ease;
         font-family: 'Inter', sans-serif;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     }
     
     .tag:hover {
-        background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        background: linear-gradient(135deg, 
+            rgba(30, 60, 114, 0.2), 
+            rgba(139, 0, 0, 0.2), 
+            rgba(184, 134, 11, 0.2));
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(184, 134, 11, 0.3);
+        border-color: rgba(255, 215, 0, 0.6);
+        color: #8b0000;
     }
     
-    /* Spectacular profile header */
+    /* Majestic royal profile header */
     .profile-header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        background: linear-gradient(135deg, 
+            #1e3c72 0%, 
+            #2a5298 20%, 
+            #8b0000 40%, 
+            #a0522d 60%, 
+            #b8860b 80%, 
+            #ffd700 100%);
         color: white;
-        padding: 48px 32px;
-        border-radius: 24px;
-        margin-bottom: 32px;
+        padding: 56px 40px;
+        border-radius: 28px;
+        margin-bottom: 36px;
         text-align: center;
         box-shadow: 
-            0 20px 40px rgba(102, 126, 234, 0.3),
-            0 10px 20px rgba(118, 75, 162, 0.2);
+            0 25px 60px rgba(30, 60, 114, 0.4),
+            0 15px 35px rgba(139, 0, 0, 0.3),
+            0 8px 20px rgba(184, 134, 11, 0.2);
         position: relative;
         overflow: hidden;
+        border: 2px solid rgba(255, 215, 0, 0.3);
     }
     
     .profile-header::before {
@@ -259,142 +410,260 @@ def add_dashboard_css():
         left: 0;
         right: 0;
         bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.05"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.05"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.03"/><circle cx="10" cy="50" r="1" fill="white" opacity="0.03"/><circle cx="90" cy="30" r="1" fill="white" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-        opacity: 0.6;
+        background: 
+            radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="royalGrain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="0.8" fill="%23ffd700" opacity="0.06"/><circle cx="75" cy="75" r="0.8" fill="%23ffffff" opacity="0.04"/><circle cx="50" cy="10" r="0.6" fill="%23ffd700" opacity="0.05"/><circle cx="10" cy="50" r="0.6" fill="%23ffffff" opacity="0.03"/><circle cx="90" cy="30" r="0.6" fill="%23ffd700" opacity="0.04"/></pattern></defs><rect width="100" height="100" fill="url(%23royalGrain)"/></svg>');
+        opacity: 0.8;
     }
     
     .profile-avatar {
-        width: 120px;
-        height: 120px;
+        width: 140px;
+        height: 140px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(10px);
+        background: linear-gradient(135deg, 
+            rgba(255, 215, 0, 0.2), 
+            rgba(255, 255, 255, 0.1));
+        backdrop-filter: blur(15px);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 3.5rem;
-        margin: 0 auto 20px;
-        border: 4px solid rgba(255, 255, 255, 0.3);
+        font-size: 4rem;
+        margin: 0 auto 24px;
+        border: 4px solid rgba(255, 215, 0, 0.4);
         box-shadow: 
-            0 8px 25px rgba(0, 0, 0, 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            0 15px 40px rgba(0, 0, 0, 0.3),
+            inset 0 2px 8px rgba(255, 215, 0, 0.2),
+            0 0 30px rgba(184, 134, 11, 0.3);
         position: relative;
         z-index: 1;
-        transition: all 0.3s ease;
+        transition: all 0.4s ease;
     }
     
     .profile-avatar:hover {
-        transform: scale(1.1);
+        transform: scale(1.1) rotate(5deg);
         box-shadow: 
-            0 12px 35px rgba(0, 0, 0, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            0 20px 50px rgba(0, 0, 0, 0.4),
+            inset 0 2px 12px rgba(255, 215, 0, 0.3),
+            0 0 40px rgba(184, 134, 11, 0.5);
+        border-color: rgba(255, 215, 0, 0.7);
     }
     
     .profile-name {
-        font-family: 'Poppins', sans-serif;
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 12px;
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 16px;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         position: relative;
         z-index: 1;
-        letter-spacing: -1px;
+        letter-spacing: -1.5px;
+        background: linear-gradient(135deg, #ffd700, #fff, #ffd700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
     
     .profile-details {
         font-family: 'Inter', sans-serif;
         opacity: 0.95;
-        font-size: 1.2rem;
-        font-weight: 400;
+        font-size: 1.3rem;
+        font-weight: 500;
         position: relative;
         z-index: 1;
-        text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        letter-spacing: 0.5px;
     }
     
-    /* Animations */
-    @keyframes rotate {
+    /* Royal animations */
+    @keyframes royalRotate {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
     }
     
-    @keyframes shimmer {
+    @keyframes royalShimmer {
         0% { transform: translateX(-100%); }
         100% { transform: translateX(100%); }
     }
     
-    /* Enhanced spacing and typography */
-    .stMarkdown h3 {
-        font-family: 'Poppins', sans-serif !important;
-        color: #2d3748 !important;
-        font-weight: 600 !important;
-        margin-top: 2rem !important;
-        margin-bottom: 1rem !important;
+    @keyframes royalGlow {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 1; }
     }
     
-    /* Beautiful info display */
+    /* Enhanced spacing and royal typography */
+    .stMarkdown h3 {
+        font-family: 'Playfair Display', serif !important;
+        color: #1e3c72 !important;
+        font-weight: 700 !important;
+        margin-top: 2.5rem !important;
+        margin-bottom: 1.5rem !important;
+        text-shadow: 0 2px 4px rgba(30, 60, 114, 0.1);
+    }
+    
+    /* Royal info display */
     .info-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 12px 0;
-        border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(184, 134, 11, 0.1);
         font-family: 'Inter', sans-serif;
+        transition: all 0.3s ease;
+    }
+    
+    .info-row:hover {
+        background: rgba(184, 134, 11, 0.05);
+        border-radius: 8px;
+        padding-left: 12px;
+        padding-right: 12px;
     }
     
     .info-label {
         font-weight: 600;
-        color: #4a5568;
+        color: #1e3c72;
+        font-size: 1rem;
     }
     
     .info-value {
-        color: #2d3748;
-        font-weight: 500;
+        color: #8b0000;
+        font-weight: 600;
+        background: linear-gradient(135deg, #8b0000, #b8860b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
     
-    /* Add hover effects for buttons */
+    /* Royal button styling */
     .stButton button {
-        background: linear-gradient(135deg, #667eea, #764ba2);
+        background: linear-gradient(135deg, #1e3c72 0%, #8b0000 50%, #b8860b 100%);
         color: white;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 600;
-        border-radius: 8px;
-        padding: 10px 20px;
-        transition: all 0.3s ease;
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        border-radius: 15px;
+        padding: 14px 28px;
+        transition: all 0.4s ease;
+        border: 2px solid rgba(184, 134, 11, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 8px 25px rgba(30, 60, 114, 0.3);
     }
 
     .stButton button:hover {
-        background: linear-gradient(135deg, #764ba2, #667eea);
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-        transform: scale(1.05);
+        background: linear-gradient(135deg, #8b0000 0%, #b8860b 50%, #1e3c72 100%);
+        box-shadow: 0 12px 35px rgba(184, 134, 11, 0.4);
+        transform: translateY(-3px) scale(1.05);
+        border-color: rgba(255, 215, 0, 0.6);
     }
 
-    /* Add animations for cards */
+    /* Royal card animations */
     .dashboard-card {
-        animation: fadeIn 0.8s ease-in-out;
+        animation: royalFadeIn 1s ease-in-out;
     }
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+    @keyframes royalFadeIn {
+        from { 
+            opacity: 0; 
+            transform: translateY(30px) scale(0.95); 
+        }
+        to { 
+            opacity: 1; 
+            transform: translateY(0) scale(1); 
+        }
     }
 
-    /* Add animations and hover effects to the FIFA card */
-    @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-8px); }
+    /* Royal floating animation */
+    @keyframes royalFloat {
+        0%, 100% { 
+            transform: translateY(0px) rotate(0deg); 
+        }
+        25% { 
+            transform: translateY(-5px) rotate(1deg); 
+        }
+        50% { 
+            transform: translateY(-10px) rotate(0deg); 
+        }
+        75% { 
+            transform: translateY(-5px) rotate(-1deg); 
+        }
     }
 
     .metric-card:hover {
-        animation: float 3s ease-in-out infinite;
+        animation: royalFloat 4s ease-in-out infinite;
     }
 
-    /* Footer styling */
-    .footer {
-        margin-top: 50px;
-        text-align: center;
-        font-family: 'Inter', sans-serif;
-        font-size: 0.9rem;
-        color: #667eea;
+    /* Royal scrollbar styling */
+    ::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: linear-gradient(135deg, 
+            rgba(30, 60, 114, 0.1), 
+            rgba(184, 134, 11, 0.1));
+        border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
+        border-radius: 10px;
+        border: 2px solid rgba(255, 215, 0, 0.1);
+        box-shadow: 0 2px 10px rgba(184, 134, 11, 0.3);
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(135deg, #8b0000, #b8860b, #ffd700);
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+    }
+    
+    /* Royal data table styling */
+    .stDataFrame {
+        background: linear-gradient(135deg, 
+            rgba(255, 255, 255, 0.9), 
+            rgba(248, 250, 252, 0.95));
+        border-radius: 15px;
+        border: 2px solid rgba(184, 134, 11, 0.2);
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(30, 60, 114, 0.1);
+    }
+    
+    /* Royal expander styling */
+    .streamlit-expanderHeader {
+        background: linear-gradient(135deg, 
+            rgba(30, 60, 114, 0.05), 
+            rgba(139, 0, 0, 0.05), 
+            rgba(184, 134, 11, 0.05));
+        border: 1px solid rgba(184, 134, 11, 0.2);
+        border-radius: 10px;
+        color: #1e3c72;
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+    }
+    
+    /* Royal sidebar enhancements */
+    .css-1d391kg {
+        background: linear-gradient(180deg, 
+            rgba(30, 60, 114, 0.95) 0%, 
+            rgba(139, 0, 0, 0.9) 50%, 
+            rgba(184, 134, 11, 0.85) 100%);
+    }
+    
+    /* Enhanced metric card sparkle animation */
+    @keyframes royalSparkle {
+        0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+        50% { opacity: 1; transform: scale(1) rotate(180deg); }
+    }
+    
+    .metric-card::after {
+        content: '✨';
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.2rem;
+        animation: royalSparkle 3s infinite;
+        color: #ffd700;
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
     }
     </style>
     """, unsafe_allow_html=True)
@@ -421,10 +690,10 @@ def render_dashboard_header(data, gvc_id):
         padding: 20px;
         margin-bottom: 32px;
         text-align: center;
-        box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
+        box-shadow: 0 4px 20px rgba(30, 60, 114, 0.1);
     ">
         <div style="
-            color: #667eea;
+            color: #1e3c72;
             font-weight: 600;
             font-size: 1rem;
             font-family: 'Inter', sans-serif;
@@ -442,7 +711,7 @@ def render_dashboard_grid(data):
     <div style="margin: 20px 0;">
         <h3 style="
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -458,15 +727,15 @@ def render_dashboard_grid(data):
     
     with col1:
         interests_count = len([i.strip() for i in data.get('interests', '').split(',') if i.strip()])
-        render_metric_card("🎯", "Interest Areas", interests_count, "#667eea")
+        render_metric_card("🎯", "Interest Areas", interests_count, "#1e3c72")
     
     with col2:
         goals_words = len(data.get('goals', '').split())
-        render_metric_card("📝", "Goal Words", goals_words, "#764ba2")
+        render_metric_card("📝", "Goal Words", goals_words, "#8b0000")
     
     with col3:
         strengths_count = len([s.strip() for s in data.get('strengths', '').split(',') if s.strip()])
-        render_metric_card("💪", "Strengths", strengths_count, "#f093fb")
+        render_metric_card("💪", "Strengths", strengths_count, "#b8860b")
     
     with col4:
         email_status = "Available" if data.get('email') else "Missing"
@@ -557,7 +826,7 @@ def render_dashboard_grid(data):
     # Row 6: FIFA Card (Centered and Featured)
     render_featured_fifa_card(data)
 
-def render_metric_card(icon, label, value, color="#667eea"):
+def render_metric_card(icon, label, value, color="#1e3c72"):
     """Render a metric card with custom color"""
     st.markdown(f"""
     <div style="
@@ -613,7 +882,7 @@ def render_chart_container(title, chart):
     ">
         <h4 style="
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -631,7 +900,7 @@ def render_chart_container(title, chart):
 def render_fallback_chart(title, message, chart_type="info"):
     """Render a fallback chart placeholder"""
     colors = {
-        "info": {"bg": "#667eea", "text": "#ffffff"},
+        "info": {"bg": "#1e3c72", "text": "#ffffff"},
         "warning": {"bg": "#f093fb", "text": "#ffffff"},
         "success": {"bg": "#4ecdc4", "text": "#ffffff"}
     }
@@ -696,14 +965,14 @@ def render_compact_basic_info_card(data):
             <span style="
                 font-size: 1.5rem;
                 margin-right: 10px;
-                background: linear-gradient(135deg, #667eea, #764ba2);
+                background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
             ">👤</span>
             <h4 style="
-                font-family: 'Poppins', sans-serif;
-                background: linear-gradient(135deg, #667eea, #764ba2);
+                font-family: 'Playfair Display', serif;
+                background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
@@ -779,14 +1048,14 @@ def render_compact_stats_card(data):
             <span style="
                 font-size: 1.5rem;
                 margin-right: 10px;
-                background: linear-gradient(135deg, #667eea, #764ba2);
+                background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
             ">📈</span>
             <h4 style="
                 font-family: 'Poppins', sans-serif;
-                background: linear-gradient(135deg, #667eea, #764ba2);
+                background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
@@ -801,7 +1070,7 @@ def render_compact_stats_card(data):
     # Progress bars using Streamlit components
     st.markdown("**Motivation**")
     st.progress(motivation / 100)
-    st.markdown(f"<div style='text-align: right; margin-top: -20px; color: #667eea; font-weight: 600;'>{motivation}%</div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='text-align: right; margin-top: -20px; color: #1e3c72; font-weight: 600;'>{motivation}%</div>", unsafe_allow_html=True)
     
     st.markdown("**Potential**")
     st.progress(potential / 100)
@@ -831,14 +1100,14 @@ def render_interests_goals_combined_card(data):
             <span style="
                 font-size: 1.8rem;
                 margin-right: 12px;
-                background: linear-gradient(135deg, #667eea, #764ba2);
+                background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
             ">🎯</span>
             <h4 style="
                 font-family: 'Poppins', sans-serif;
-                background: linear-gradient(135deg, #667eea, #764ba2);
+                background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
@@ -865,14 +1134,14 @@ def render_interests_goals_combined_card(data):
                 with cols[i % num_cols]:
                     st.markdown(f"""
                     <div style="
-                        background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
-                        color: #667eea;
+                        background: linear-gradient(135deg, rgba(30, 60, 114, 0.15), rgba(139, 0, 0, 0.15), rgba(184, 134, 11, 0.15));
+                        color: #1e3c72;
                         padding: 8px 12px;
                         border-radius: 20px;
                         font-size: 0.85rem;
                         font-weight: 500;
                         margin: 4px 0;
-                        border: 1px solid rgba(102, 126, 234, 0.3);
+                        border: 1px solid rgba(184, 134, 11, 0.3);
                         font-family: 'Inter', sans-serif;
                         text-align: center;
                         white-space: nowrap;
@@ -889,8 +1158,8 @@ def render_interests_goals_combined_card(data):
         st.markdown("**🎖️ Goals:**")
         st.markdown(f"""
         <div style="
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
-            border-left: 4px solid #667eea;
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.05), rgba(139, 0, 0, 0.05), rgba(184, 134, 11, 0.05));
+            border-left: 4px solid #b8860b;
             padding: 15px;
             border-radius: 10px;
             font-family: 'Inter', sans-serif;
@@ -928,14 +1197,14 @@ def render_timeline_card(data):
                 <span style="
                     font-size: 1.8rem;
                     margin-right: 12px;
-                    background: linear-gradient(135deg, #667eea, #764ba2);
+                    background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     background-clip: text;
                 ">📅</span>
                 <h4 style="
                     font-family: 'Poppins', sans-serif;
-                    background: linear-gradient(135deg, #667eea, #764ba2);
+                    background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     background-clip: text;
@@ -953,7 +1222,7 @@ def render_timeline_card(data):
             ">
                 <div style="
                     font-size: 2.5rem;
-                    color: #667eea;
+                    color: #1e3c72;
                     margin-bottom: 10px;
                 ">📈</div>
                 <p style="
@@ -981,7 +1250,7 @@ def render_wordcloud_container(word_cloud_img):
     ">
         <h4 style="
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1003,7 +1272,7 @@ def render_featured_fifa_card(data):
     ">
         <h3 style="
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1090,14 +1359,14 @@ def render_goals_card(data):
         # Display goals in a beautiful format
         st.markdown(f"""
         <div style="
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
-            border-left: 4px solid #667eea;
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.05), rgba(139, 0, 0, 0.05), rgba(184, 134, 11, 0.05));
+            border-left: 4px solid #b8860b;
             padding: 20px;
             border-radius: 12px;
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #2d3748;
-            margin-bottom: 16px;
+            color: #374151;
+            font-size: 0.9rem;
         ">
             {goals}
         </div>
@@ -1112,7 +1381,7 @@ def render_goals_card(data):
             align-items: center;
             gap: 16px;
             font-size: 0.9rem;
-            color: #667eea;
+            color: #1e3c72;
             font-weight: 500;
         ">
             <span>📖 {words} words</span>
@@ -1202,27 +1471,25 @@ def render_compact_fifa_card(data):
     # Create the FIFA card HTML with enhanced design
     card_html = f"""
         <div style="
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #8b0000 50%, #b8860b 100%);
             color: white;
             border-radius: 25px;
             padding: 35px 30px;
             text-align: center;
             margin: 20px auto;
             box-shadow: 
-                0 25px 50px rgba(102, 126, 234, 0.4),
+                0 25px 50px rgba(30, 60, 114, 0.4),
                 0 8px 16px rgba(0, 0, 0, 0.2);
-            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            overflow: hidden;
             position: relative;
-            max-width: 340px;
-            height: 600px; /* Increased height */
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
+            max-width: 350px;
+            height: 500px;
         ">
             <!-- Student Badge -->
             <div style="
                 position: absolute;
-                top: 18px;
-                right: 18px;
+                top: 15px;
+                right: 15px;
                 background: linear-gradient(45deg, #FFD700, #FFA500);
                 color: #333;
                 padding: 8px 14px;
@@ -1248,18 +1515,17 @@ def render_compact_fifa_card(data):
             
             <!-- Position Badge -->
             <div style="
-                background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
+                background: linear-gradient(135deg, #000000, #1a1a1a);
                 color: #FFD700;
-                padding: 10px 18px;
-                border-radius: 20px;
-                font-size: 12px;
-                font-weight: bold;
-                margin-bottom: 25px;
-                display: inline-block;
+                padding: 6px 12px;
+                border-radius: 15px;
+                font-size: 0.7rem;
+                font-weight: 700;
+                letter-spacing: 1px;
+                margin-top: 8px;
+                border: 2px solid #FFD700;
                 text-transform: uppercase;
-                letter-spacing: 1.2px;
-                border: 1px solid rgba(255, 215, 0, 0.3);
-                box-shadow: inset 0 1px 3px rgba(255, 215, 0, 0.2);
+                display: inline-block;
             ">{position}</div>
             
             <!-- Avatar/Icon -->
@@ -1376,7 +1642,7 @@ def render_action_buttons(data):
     ">
         <h3 style="
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1425,7 +1691,7 @@ def render_enhanced_additional_sections(data):
     <div style="margin-top: 40px;">
         <h3 style="
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1574,7 +1840,7 @@ def render_student_header(data):
     # Create header banner
     st.markdown(f"""
     <div style="
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #1e3c72 0%, #8b0000 50%, #b8860b 100%);
         padding: 20px;
         border-radius: 10px;
         margin-bottom: 20px;
@@ -1702,7 +1968,7 @@ def render_fifa_card(data):
         goals = data.get('goals', '')
         if goals:
             words = len(goals.split())
-            base_score += min(words // 2, 15)  # Up to 15 points for detailed goals
+            base_score += min(words // 10, 15)
         
         # Add points for strengths
         if data.get('strengths'):
@@ -1769,9 +2035,8 @@ def render_fifa_card(data):
                 border-radius: 20px;
                 position: relative;
                 box-shadow: 
-                    0 0 30px rgba(255, 215, 0, 0.6),
-                    0 0 60px rgba(255, 140, 0, 0.4),
-                    inset 0 0 30px rgba(255, 255, 255, 0.2);
+                    0 25px 50px rgba(30, 60, 114, 0.4),
+                    0 8px 16px rgba(0, 0, 0, 0.2);
                 overflow: hidden;
                 transition: all 0.4s ease;
                 animation: glow 3s ease-in-out infinite alternate;
@@ -1822,7 +2087,7 @@ def render_fifa_card(data):
                 width: 100px;
                 height: 100px;
                 border-radius: 50%;
-                background: linear-gradient(135deg, #4A90E2, #7B68EE, #9370DB);
+                background: linear-gradient(135deg, #1e3c72, #8b0000, #b8860b);
                 margin: 15px auto;
                 display: flex;
                 align-items: center;
@@ -2050,8 +2315,8 @@ def create_interests_chart(data):
         if len(interest_list) < 2:
             return None
         
-        # Create a beautiful color palette
-        colors = ['#667eea', '#764ba2', '#f093fb', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3']
+        # Create a beautiful royal color palette
+        colors = ['#1e3c72', '#8b0000', '#b8860b', '#ffd700', '#2a5298', '#a0522d', '#daa520', '#cd853f']
         
         # Create donut chart
         fig = go.Figure(data=[go.Pie(
@@ -2116,9 +2381,9 @@ def create_skills_radar_chart(data):
             r=values,
             theta=categories,
             fill='toself',
-            fillcolor='rgba(102, 126, 234, 0.3)',
-            line=dict(color='#667eea', width=3),
-            marker=dict(color='#667eea', size=8),
+            fillcolor='rgba(30, 60, 114, 0.3)',
+            line=dict(color='#1e3c72', width=3),
+            marker=dict(color='#b8860b', size=8),
             name='Skills Profile',
             hovertemplate='<b>%{theta}</b><br>Score: %{r}/100<extra></extra>'
         ))
@@ -2185,14 +2450,14 @@ def create_performance_gauge(data):
             delta = {'reference': 80, 'font': {'size': 14}},
             gauge = {
                 'axis': {'range': [None, 100], 'tickfont': {'size': 12, 'color': '#6b7280'}},
-                'bar': {'color': "#667eea", 'thickness': 0.3},
+                'bar': {'color': "#1e3c72", 'thickness': 0.3},
                 'steps': [
                     {'range': [0, 50], 'color': "rgba(255, 107, 107, 0.3)"},
                     {'range': [50, 80], 'color': "rgba(255, 193, 7, 0.3)"},
                     {'range': [80, 100], 'color': "rgba(76, 175, 80, 0.3)"}
                 ],
                 'threshold': {
-                    'line': {'color': "#764ba2", 'width': 4},
+                    'line': {'color': "#b8860b", 'width': 4},
                     'thickness': 0.8,
                     'value': 85
                 }
@@ -2238,7 +2503,7 @@ def create_goals_timeline(data):
         
         periods = list(timeline_scores.keys())
         scores = list(timeline_scores.values())
-        colors = ['#667eea', '#764ba2', '#f093fb']
+        colors = ['#1e3c72', '#8b0000', '#b8860b']
         
         fig = go.Figure()
         
@@ -2276,7 +2541,7 @@ def create_goals_timeline(data):
                 ),
                 tickfont=dict(size=11, color='#374151')
             ),
-            margin=dict(t=60, b=60, l=60, r=20),
+            margin=dict(t=60, b=40, l=60, r=20),
             paper_bgcolor='rgba(0,0,0,0)',
             plot_bgcolor='rgba(0,0,0,0)',
             height=300
@@ -2404,3 +2669,4 @@ def create_word_cloud(data):
         
     except ImportError:
         return None
+
